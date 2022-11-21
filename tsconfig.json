@@ -19,9 +19,9 @@
     "plugins": [
       {
         "transform": "war3-transformer",
-        "mapDir": "/workspaces/wc3-ts-template/maps/map.w3x",
-        "entryFile": "/workspaces/wc3-ts-template/src/main.ts",
-        "outputDir": "/workspaces/wc3-ts-template/dist/map.w3x"
+        "mapDir": "/workspaces/Warcraft-TS-Map-Engine/maps/map.w3x",
+        "entryFile": "/workspaces/Warcraft-TS-Map-Engine/src/main.ts",
+        "outputDir": "/workspaces/Warcraft-TS-Map-Engine/dist/map.w3x"
       }
     ],
     "types": [
