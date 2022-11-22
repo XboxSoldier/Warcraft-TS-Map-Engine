@@ -1,55 +1,86 @@
 ﻿STRING 1
 {
-TypeScript Template
+假人
 }
 
 STRING 2
 {
-Any
+假人
 }
 
 STRING 3
 {
-Nondescript
+假人
 }
 
 STRING 4
 {
-TriggerHappy
+恶魔猎犬
 }
 
 STRING 5
+// 单位: lu00 (恶魔猎犬), Tip (提示工具 - 基础)
 {
-Player 1
+召唤恶魔猎犬
 }
 
 STRING 6
+// 单位: lu00 (恶魔猎犬), Ubertip (提示工具 - 扩展)
 {
-Player 2
+恶魔野兽。|n|n|cffffcc00能攻击地面单位。|r
 }
 
 STRING 7
+// 技能: la00 (邪恶吸收), Name (名字)
 {
-Player 3
+邪恶吸收
 }
 
 STRING 8
+// 技能: la00 (邪恶吸收), Tip (提示工具 - 普通)
 {
-Force 1
-}
-
-STRING 9
-{
-Force 2
+邪恶吸收
 }
 
 STRING 10
+// 技能: lc00 (邪恶吸收), Name (名字)
 {
-Player 4
+邪恶吸收
 }
 
 STRING 11
+// 技能: lc00 (邪恶吸收), EditorSuffix (编辑器后缀)
 {
-Player 12
+- 施法者
+}
+
+STRING 12
+// 魔法效果: lb00 (), Bufftip (工具提示)
+{
+邪恶吸收
+}
+
+STRING 13
+// 魔法效果: lb00 (), Buffubertip (工具提示 - 扩展)
+{
+该单位吸收了其他单位的生命力量，可以抵挡一定数量的伤害。
+}
+
+STRING 14
+// 单位: e000 (假人), Name (名字)
+{
+假人
+}
+
+STRING 15
+// 单位: lu00 (恶魔猎犬), Name (名字)
+{
+恶魔猎犬
+}
+
+STRING 16
+// 技能: la00 (邪恶吸收), Ubertip (提示工具 - 普通 - 扩展)
+{
+使恶魔猎犬的攻击能够将造成伤害的20%转化为一道护盾，持续8秒。|n|n|cffffcc00该效果不可被驱散。|r
 }
 

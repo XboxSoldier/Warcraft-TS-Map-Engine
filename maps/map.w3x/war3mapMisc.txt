@@ -1,0 +1,10 @@
+[Misc]
+DamageBonusHero=1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+DamageBonusMagic=1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+DamageBonusNormal=1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+DamageBonusPierce=1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+DamageBonusSiege=1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+DamageBonusSpells=1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+DefenseArmor=0.0
+EtherealDamageBonus=1.00,1.00,1.00,1.00,1.00,1.00,1.00
+
