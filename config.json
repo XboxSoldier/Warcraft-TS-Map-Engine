@@ -4,8 +4,6 @@
   "gameExecutable": "C:\\Program Files\\Warcraft III\\_retail_\\x86_64\\Warcraft III.exe",
   "outputFolder": "./dist/bin",
   "launchArgs": [
-    "-launch",
-    "-windowmode",
-    "windowed"
+    "-launch"
   ]
 }

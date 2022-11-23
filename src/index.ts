@@ -1,31 +1,21 @@
-class FallBack<K, V>{
-    public static map = new FallBack<any, any>((superior?: Map<any, any>, key?: any) => {
-        let map = new Map();
-        map.superior = superior;
-        map.key = key;
-        return map;
-    });
-    public func: (superior?: Map<K, V>, key?: K) => V;
-    constructor(func: (superior?: Map<K, V>, key?: K) => V) {
-        this.func = func;
-    }
-    public execute(superior?: Map<K, V>, key?: K): V {
-        return this.func(superior, key);
-    }
-}
+/// <reference path="./core.ts" />
 
 declare global {
     interface Map<K, V> {
-        superior: Map<K, V>;
-        key: K;
-        read: (key: K, fallBack?: FallBack<K, V>) => V;
+        superior: Map<K, V> | undefined;
+        key: K | undefined;
+        read: (key: K, fallBack?: bc_core.FallBack<K, V>) => V;
         write: (key: K, value: V) => void;
-        view: (path: K[], fallBackM?: FallBack<K, V>, fallBackF?: FallBack<K, V>) => V;
+        view: (path: K[], fallBackM?: bc_core.FallBack<K, V>, fallBackF?: bc_core.FallBack<K, V>) => V;
         cover: (path: K[], value: V) => void;
+        setProperty(key: string, value: V): void;
+    }
+    interface Set<T> {
+        setProperty(key: string, value: T): void;
     }
 }
 
-Map.prototype.read = function<K, V> (key: K, fallBack?: FallBack<K, V>): V {
+Map.prototype.read = function<K, V> (key: K, fallBack?: bc_core.FallBack<K, V>): V | Map<K, V> | undefined {
     if (this.has(key)) {
         return this.get(key);
     }
@@ -48,7 +38,7 @@ Map.prototype.write = function<K, V> (key: K, value: V): void {
     }
 }
 
-Map.prototype.view = function<K, V> (path: K[], fallBackM?: FallBack<K, V>, fallBackF?: FallBack<K, V>): V {
+Map.prototype.view = function<K, V> (path: K[], fallBackM?: bc_core.FallBack<K, V>, fallBackF?: bc_core.FallBack<K, V>): V | Map<K, V> | undefined {
     if (path.length == 0) {
         return this;
     }
@@ -70,10 +60,30 @@ Map.prototype.cover = function<K, V> (path: K[], value: V): void {
     }
     let key = path[path.length - 1];
     path = path.slice(0, -1);
-    let next = this.view(path, FallBack.map);
+    let next = this.view(path, bc_core.FallBack.map);
     if (next instanceof Map) {
         next.write(key, value);
     }
 }
 
-export {FallBack};
+Map.prototype.setProperty = function<K, V> (key: string, value: any): void {
+    if (key.length == 0 || key[0] == '$' || key[0] == '_') {
+        return;
+    }
+    if (Map.prototype[key] != undefined) {
+        return;
+    }
+    this[key] = value;
+}
+
+Set.prototype.setProperty = function<T> (key: string, value: any): void {
+    if (key.length == 0 || key[0] == '$' || key[0] == '_') {
+        return;
+    }
+    if (Set.prototype[key] != undefined) {
+        return;
+    }
+    this[key] = value;
+}
+
+export {};
