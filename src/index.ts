@@ -76,4 +76,4 @@ Map.prototype.cover = function<K, V> (path: K[], value: V): void {
     }
 }
 
-export {FallBack};
+export default FallBack;
