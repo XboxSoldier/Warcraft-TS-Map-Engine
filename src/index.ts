@@ -4,9 +4,9 @@ declare global {
     interface Map<K, V> {
         superior: Map<K, V> | undefined;
         key: K | undefined;
-        read: (key: K, fallBack?: bc_core.FallBack<K, V>) => V;
+        read: (key: K, fallBack?: BC.FallBack<K, V>) => V;
         write: (key: K, value: V) => void;
-        view: (path: K[], fallBackM?: bc_core.FallBack<K, V>, fallBackF?: bc_core.FallBack<K, V>) => V;
+        view: (path: K[], fallBackM?: BC.FallBack<K, V>, fallBackF?: BC.FallBack<K, V>) => V;
         cover: (path: K[], value: V) => void;
         setProperty(key: string, value: V): void;
     }
@@ -15,7 +15,7 @@ declare global {
     }
 }
 
-Map.prototype.read = function<K, V> (key: K, fallBack?: bc_core.FallBack<K, V>): V | Map<K, V> | undefined {
+Map.prototype.read = function<K, V> (key: K, fallBack?: BC.FallBack<K, V>): V | Map<K, V> | undefined {
     if (this.has(key)) {
         return this.get(key);
     }
@@ -38,7 +38,7 @@ Map.prototype.write = function<K, V> (key: K, value: V): void {
     }
 }
 
-Map.prototype.view = function<K, V> (path: K[], fallBackM?: bc_core.FallBack<K, V>, fallBackF?: bc_core.FallBack<K, V>): V | Map<K, V> | undefined {
+Map.prototype.view = function<K, V> (path: K[], fallBackM?: BC.FallBack<K, V>, fallBackF?: BC.FallBack<K, V>): V | Map<K, V> | undefined {
     if (path.length == 0) {
         return this;
     }
@@ -60,7 +60,7 @@ Map.prototype.cover = function<K, V> (path: K[], value: V): void {
     }
     let key = path[path.length - 1];
     path = path.slice(0, -1);
-    let next = this.view(path, bc_core.FallBack.map);
+    let next = this.view(path, BC.Core.FallBacks.map);
     if (next instanceof Map) {
         next.write(key, value);
     }

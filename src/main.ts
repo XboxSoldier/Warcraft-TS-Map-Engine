@@ -1,4 +1,5 @@
 /// <reference path="./core.ts" />
+/// <reference path="./module.ts" />
 
 import { Timer, Unit } from "w3ts";
 import { Players } from "w3ts/globals";
